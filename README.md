@@ -1,1 +1,1 @@
-### Popup map location pluginf for wordpress
+### Popup map location plugin for wordpress

@@ -35,28 +35,28 @@ function vm_custom_plugin_form_display(){
 
 
                     // alert(document.cookie);
-                    <?php
-                    $clickedCountry = 'Germany';
-
-                    global $wpdb;
-                    $prefix = $wpdb->prefix;
-                    $table_name = $prefix."vector_map";
-                    $json_object = null;
-
-                    if (isset($cname)){
-                        $popups = $wpdb->get_results ("SELECT * FROM $table_name WHERE country_name=$clickedCountry");
-                    }
-                    else{
-                        $popups = $wpdb->get_results ("SELECT * FROM $table_name");
-                    }
-
-                    if(count($popups) > 0) {
-                        foreach ($popups as $i => $popup) {
-                            $i = $i+1;
-                        }
-                        var_dump($popup);
-                    }
-                    ?>
+<!--                    --><?php
+//                    $clickedCountry = 'Germany';
+//
+//                    global $wpdb;
+//                    $prefix = $wpdb->prefix;
+//                    $table_name = $prefix."vector_map";
+//                    $json_object = null;
+//
+//                    if (isset($cname)){
+//                        $popups = $wpdb->get_results ("SELECT * FROM $table_name WHERE country_name=$clickedCountry");
+//                    }
+//                    else{
+//                        $popups = $wpdb->get_results ("SELECT * FROM $table_name");
+//                    }
+//
+//                    if(count($popups) > 0) {
+//                        foreach ($popups as $i => $popup) {
+//                            $i = $i+1;
+//                        }
+//                        var_dump($popup);
+//                    }
+//                    ?>
 
 
                     $( ".KBmap__marker .marker" ).css('background', 'red');

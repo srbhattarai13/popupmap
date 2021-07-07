@@ -1,0 +1,205 @@
+/*
+ *
+ *  // Map Markers CSS
+ *
+ */
+.KBmap__mapContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.KBmap__mapHolder {
+  display: inline-block;
+  position: relative;
+}
+
+.KBmap__mapHolder svg {
+  max-width: 100%;
+}
+.KBmap__mapHolder img {
+  max-width: 100%;
+  width: 100%;
+}
+@-webkit-keyframes iconChange {
+}
+@-webkit-keyframes mapMarkerAnimation {
+  0% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  50% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+
+@keyframes mapMarkerAnimation {
+  0% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  50% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+
+.marker {
+  background-color: grey;
+  border-radius: 50px;
+  height: 9px;
+  width: 9px;
+  pointer-events: visible;
+}
+
+.marker:hover {
+  background-color: red;
+}
+
+.marker-active{
+  background-color: red;
+}
+
+.KBmap__marker {
+  position: absolute;
+  -webkit-transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%);
+  top: 42%;
+  left: 69%;
+  z-index: 1;
+  /*background-image: url("../img/redcirclemarker.ico");*/
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 6px 6px;
+  /*opacity: 1;*/
+  /*background-size: 16px 16px;*/
+}
+.line {
+  position: absolute;
+  height: 1px;
+  background-color: black;
+  width:230px;
+ 
+}
+/*.KBmap__marker:hover{*/
+
+/*}*/
+.KBmap__marker.current {
+  z-index: 2;
+}
+/*.KBmap__mapContainer .KBmap__marker img {*/
+/*  cursor: pointer;*/
+/*  position: relative;*/
+/*  !*position: absolute;*!*/
+/*  z-index: 3;*/
+/*  !*background-image: url("../img/redcirclemarker.ico");*!*/
+/*  !*opacity: 1;*!*/
+/*  !*opacity: 0;*!*/
+/*  background-position: center;*/
+/*  width: 9px;*/
+/*}*/
+
+/*.KBmap__marker img:hover{*/
+
+/*  background-image: url("../img/graycolormarker.ico"); !* The image used *!*/
+/*  background-position: center; !* Center the image *!*/
+/*  !*background-repeat: no-repeat; !* Do not repeat the image *!*!*/
+/*  !*background-size: 16px 24px; !* Resize the background image to cover the entire container *!*!*/
+/*  opacity: 0;*/
+/*  !*z-index: 2;*!*/
+/*}*/
+
+/*.line {*/
+/*  border-bottom: 2px solid #ccc;*/
+/*  display: block;*/
+/*  margin-top: 100px;*/
+/*  margin-left: 0px;*/
+/*}*/
+/*popup window*/
+.KBmap__markerContent {
+  width: 200px;
+  height: auto;
+  background-color: #ffffff;
+  display: inline-block;
+
+  margin-left: 400px;
+
+  /*margin-top: 100px;*/
+  -webkit-box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.15);
+  position: absolute;
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+  z-index: 1;
+}
+.KBmap__markerContent img {
+  width: 100% !important ;
+  height: auto !important;
+  padding-left: 5px;
+  padding-right: 10px;
+  /*height: 100px !important;*/
+  /*height:173px;*/
+  /*position: absolute;*/
+}
+.KBmap__markerContent .KBmap__markerTitle {
+  margin-top: 0px;
+  margin-bottom: 0.5em;
+  padding-left: 5px;
+}
+
+.KBmap__markerContentItem {
+  pointer-events: none;
+}
+/*.KBmap p span {*/
+/*  display: block;*/
+/*  font-size: 12px;*/
+/*}*/
+.KBmap__markerContentItem p {
+  margin-bottom: 0.5em;
+  margin-top: 0px;
+  padding-left: 5px;
+}
+
+.KBmap__markerClose {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: #231f20;
+  size: 5em;
+}
+
+.KBmap_cords {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background-color: #e7b786;
+  border: 2px solid #56270c;
+  padding: 2px 5px;
+  pointer-events: none;
+}
+.KBmap__markerContent {
+  z-index: 99999 !important;
+}
+.KBmap__markerContentItem img {
+  height: 113px !important;
+}
+.elementor-safe-mode-toast {
+  display: none !important;
+}

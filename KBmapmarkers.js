@@ -168,7 +168,7 @@ function MarkerModal(modalTitle, content, linkedMapMarker) {
 	this.generateModal = function () {
 
 
-		output = ' <div  class="KBmap__markerContent"> <div class="KBmap__markerClose"><i class="fa fa-times" aria-hidden="true"></i>' +
+		output = ' <div  class="KBmap__markerContent"> <div class="KBmap__markerClose "><i class="fa fa-times" aria-hidden="true"></i>' +
 			'</div><br>';
 
 		// +
@@ -479,6 +479,7 @@ function onclicckline() {
 		if (lineElement) {
 			lineElement.remove();
 		}
+		else{
 
 		newlineElement.classList.add('line');
 
@@ -487,6 +488,7 @@ function onclicckline() {
 		document.querySelector('.line').style.width = lineWidth + 'px';
 		document.querySelector('.line').style.top = markerOffsetTop + markerHeight / 5 - 7 + 'px';
 		document.querySelector('.line').style.left = markerOffsetLeft + markerWidth / 2 + 'px';
+		}
 	}
 
 

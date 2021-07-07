@@ -103,11 +103,14 @@ function vm_dashboard(){
                                 <label for="image">Image</label>
                                 <input type="file" class="form-control" id="image" name="popup_image" value="<?php echo isset($edit) ? $edit->image : "" ?>" >
                             </div>
+                            <div class="form-group">
+                                <input type="text" hidden class="form-control" id="prvimage" name="prvpopup_image" value="<?php echo isset($edit) ? $edit->image : "" ?>" >
+                            </div>
 <!--                            <div class="form-group">-->
 <!--                                <label for="image">Marker Image</label>-->
 <!--                                <input type="file" class="form-control" id="marker_image" name="marker_image" value="--><?php //echo isset($edit) ? $edit->marker_image : "" ?><!--" >-->
 <!--                            </div>-->
-                            <input type="submit" value="<?php echo isset($edit) ? "Update" : "Save" ?>" name="submit" class="btn btn-success" style="width: 100%">
+                            <input type="submit"  value="<?php echo isset($edit) ? "Update" : "Save" ?>" name="submit" class="btn btn-success" style="width: 100%">
                         </form>
                     </div>
                 </div>
@@ -331,6 +334,7 @@ function vm_dashboard(){
            $coordinate_x    = $_POST['coordinate_x'];
            $coordinate_y    = $_POST['coordinate_y'];
            $description     = $_POST['description'];
+           $prvpopimage = $_POST['prvpopup_image'];
 
            $upload = wp_upload_dir();
            $upload_dir = $upload['basedir'];
@@ -338,10 +342,28 @@ function vm_dashboard(){
            if (! is_dir($upload_dir)) {
                mkdir( $upload_dir, 0777 );
            }
+
+
            $filename = basename($_FILES['popup_image']['name']);
-           $ext =  pathinfo($filename, PATHINFO_EXTENSION);
-           $filename = "popup_".time().".$ext";
-           $target_path = $upload_dir . "/" ."popup_". time().".$ext";
+
+           if (!empty($filename)){
+               $filename = $filename;
+           }
+           else{
+               $filename = $prvpopimage;
+           }
+
+//           var_dump($filename);
+//           var_dump($filename);
+
+//           $ext =  pathinfo($filename, PATHINFO_EXTENSION);
+//           var_dump($ext);
+//           $filename = "popup_".".$ext";
+
+
+           $target_path = $upload_dir . "/" .$filename;
+
+
            move_uploaded_file($_FILES['popup_image']['tmp_name'], $target_path);
            //marker_image
            $upload_marker = wp_upload_dir();

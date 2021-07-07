@@ -19,15 +19,21 @@ function vm_custom_plugin_form_display(){
 
    if(!isset($_GET['action'])){
     ?>
+     <section class="location">
+   <div class="locations">
+        <ol>
+            <li style="color:red !important;">
+       <a onclick="check('nepal')">Nepal</a> <br></li>
+
+       <li style="color:red !important;"><a  onclick="check('india')">  India</a></li>
+       </ol>
+   </div>
+</section>
 
     <section class="KBmap" id="KBtestmap">
- 
-       <button onclick="check('nepal')">Nepal</button>
-      
-       <button onclick="check('india')">India</button>
-    
-   
+
     </section>
+  
        <?php
 //       global $wpdb;
 //       $prefix = $wpdb->prefix;

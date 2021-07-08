@@ -168,7 +168,7 @@ function MarkerModal(modalTitle, content, linkedMapMarker) {
 	this.generateModal = function () {
 
 
-		output = ' <div  class="KBmap__markerContent"> <div class="KBmap__markerClose"><i class="fa fa-times" aria-hidden="true"></i>' +
+		output = ' <div  class="KBmap__markerContent"> <div class="KBmap__markerClose "><i class="fa fa-times" aria-hidden="true"></i>' +
 			'</div><br>';
 
 		// +
@@ -187,7 +187,13 @@ function MarkerModal(modalTitle, content, linkedMapMarker) {
 	}
 
 	this.closeModal = function () {
+		
 		jQuery('[data-marker-name="' + this.linkedMapMarker.name + '"] .KBmap__markerContent').remove();
+		lineElement = document.querySelector('.line')
+		if (lineElement) {
+			lineElement.remove();
+		}
+		
 		this.linkedMapMarker.map.openedModals.removeElement(this);
 
 		this.linkedMapMarker.deactivate();
@@ -479,6 +485,7 @@ function onclicckline() {
 		if (lineElement) {
 			lineElement.remove();
 		}
+		
 
 		newlineElement.classList.add('line');
 

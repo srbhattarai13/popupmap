@@ -19,16 +19,17 @@ function vm_custom_plugin_form_display(){
 
    if(!isset($_GET['action'])){
     ?>
-     <section class="location">
-   <div class="locations">
-        <ol>
-            <li style="color:red !important;">
-       <a onclick="check('nepal')">Nepal</a> <br></li>
+    
+ 
+       <span class="both">10</span> 
+       <a onclick="check('nepal')" style="font-size:15px;">Both</a></a> <br>
+       <span class="circle">1</span> 
+       <a onclick="check('nepal')" style="font-size:15px;">Nepal</a></a> <br>
+       <span class="circle2">2</span> 
+       <a onclick="check('india')" style="font-size:15px;">India</a></a> <br>
+       
+  
 
-       <li style="color:red !important;"><a  onclick="check('india')">  India</a></li>
-       </ol>
-   </div>
-</section>
 
     <section class="KBmap" id="KBtestmap">
 
@@ -125,6 +126,7 @@ $(document).ready(function(){
 
 });
 
+
 $(document).ready(function(){
     var line = "<?php echo plugins_url( '../img/', __FILE__ )?>";
     console.log(line);
@@ -146,7 +148,7 @@ const indiacities = ["sandweg8","HirschbergerStraße","PfrondorferStr8"];
 function check(country) {
 		if (country === "nepal") {
             nepalcities.forEach(city => {
-                $("."+city).toggleClass("marker-active")
+                $("this"+city).toggleClass("marker-active")
             })
             indiacities.forEach(city => {
                 $("."+city).removeClass("marker-active")
@@ -169,7 +171,6 @@ function check(country) {
 		// }
 
 	}
-
     </script>
     <?php
 }

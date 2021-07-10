@@ -87,6 +87,9 @@ function Map(name) {
 function filterCountry(country_name) {
 	// alert(country_name);
 	$('.marker:hover').trigger('hover');
+	
+	
+
 
 	// jQuery('body').on('click touchstart', '.KBmap__marker .marker', function(){
 	//
@@ -120,8 +123,11 @@ function MapMarker(name, icon, cordX, cordY, map, place) {
 
 	this.deactivate = function () {
 		jQuery('[data-marker-name="' + this.name + '"]').removeClass('active');
-	}
+		
+		
 
+	}
+	
 	this.setCurrent = function () {
 		jQuery('[data-marker-name="' + this.name + '"]').css('z-index', this.map.maxZindex);
 		this.map.maxZindex++;
@@ -187,7 +193,12 @@ function MarkerModal(modalTitle, content, linkedMapMarker) {
 	}
 
 	this.closeModal = function () {
-		jQuery('[data-marker-name="' + this.linkedMapMarker.name + '"] .KBmap__markerContent').remove();
+				jQuery('[data-marker-name="' + this.linkedMapMarker.name + '"] .KBmap__markerContent').remove();
+		lineElement = document.querySelector('.line')
+		if (lineElement) {
+			lineElement.remove();
+		}
+		
 		this.linkedMapMarker.map.openedModals.removeElement(this);
 
 		this.linkedMapMarker.deactivate();
@@ -222,9 +233,9 @@ function MarkerModal(modalTitle, content, linkedMapMarker) {
 		if (!this.isModalActive()) {
 
 			this.openModal();
-
+			
 		} else {
-
+			
 			this.closeModal();
 
 		}
@@ -391,6 +402,7 @@ jQuery(document).ready(function () {
 		var clickedMarkerMapName = jQuery(this).parent().parent().parent().parent().attr('id');
 		jQuery('.KBmap__markerContent').hide();
 		jQuery.event.trigger('markerClick', getKBmap(clickedMarkerMapName).mapMarkers[clickedMarkerName]);
+		
 
 	});
 
@@ -419,16 +431,24 @@ jQuery(document).ready(function () {
 
 	// on markerClick event run function that opens linked modal
 	jQuery(document).on('markerClick', function (event, mapMarker) {
-
+		$(".KBmap__marker.active > .marker").removeClass("active");
+		
 		mapMarker.modal.toggleModal();
-
+		
 	});
 
 	// on markerClose event
 	jQuery(document).on('markerClose', function (event, mapMarker) {
-
+		
+		$(".KBmap__marker.active > .marker").removeClass("active");
 		mapMarker.modal.closeModal();
+	
+		debugger
 
+	});
+
+	$('.marker').on("click",function() {
+		$(this).toggleClass("active");
 	});
 
 }); // document ready end
@@ -438,6 +458,7 @@ jQuery(document).ready(function () {
  *  // Required functionality methods and functions end
  *
  */
+
 
 function createKBmap(name, mapsrc, mapDataJSON) {
 
@@ -479,7 +500,7 @@ function onclicckline() {
 		if (lineElement) {
 			lineElement.remove();
 		}
-		else{
+		
 
 		newlineElement.classList.add('line');
 
@@ -488,9 +509,18 @@ function onclicckline() {
 		document.querySelector('.line').style.width = lineWidth + 'px';
 		document.querySelector('.line').style.top = markerOffsetTop + markerHeight / 5 - 7 + 'px';
 		document.querySelector('.line').style.left = markerOffsetLeft + markerWidth / 2 + 'px';
-		}
 	}
 
-
+	/*
+var markers = header.getElementsByClassName("marker");
+var kbmarker = document.getElementById("KBmap__marker");
+for (var i = 0; i < kbmarker.length; i++) {
+	kbmarker[i].addEventListener("onclick", function() {
+  var current = document.getElementsByClassName("active");
+ 
+  this.className += "marker-active";
+  });
+}
+*/
 }
 

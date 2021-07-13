@@ -3,7 +3,15 @@
  *  // Map Markers CSS
  *
  */
+/*.basemap{*/
+/*  background-image: url("../img/blankmap.png");*/
+/*}*/
+/*.germanymap{*/
+/*  background-image: url("../img/Deutschland.png");*/
+/*}*/
 .KBmap__mapContainer {
+  width: 67%;
+  float: right;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,7 +20,7 @@
   align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center;
+  /*justify-content: center;*/
 }
 
 .KBmap__mapHolder {
@@ -24,8 +32,8 @@
   max-width: 100%;
 }
 .KBmap__mapHolder img {
-  max-width: 100%;
-  width: 100%;
+  max-width: 100% !important;
+  width: 100% !important;
 }
 @-webkit-keyframes iconChange {
 }
@@ -60,7 +68,7 @@
 }
 
 .marker {
-  background-color: grey;
+  background-color: #da0a1d;
   border-radius: 50px;
   height: 9px;
   width: 9px;
@@ -68,13 +76,46 @@
 }
 
 .marker:hover {
-  background-color: red;
+  background-color: gray;
+}
+/*.marker-active{*/
+/*  background-color: gray;*/
+/*}*/
+/*.active {*/
+/*  background-color: grey;*/
+/*  border-radius: 50px;*/
+/*}*/
+#nav ul.sub-nav {
+  display: none;
 }
 
-.marker-active {
-  background-color: red;
+#nav ul.visible {
+  display: block;
 }
-
+.boldcountry-active {
+  font-weight: 500;
+}
+.countryName {
+  font-size: 12px;
+  /*padding-left: 9px;*/
+  margin-left: 4px;
+}
+.corporate_marker {
+  background-color: #0b4d7d;
+  border-radius: 50px;
+  height: 9px;
+  width: 9px;
+  pointer-events: visible;
+}
+/*. corporate_marker .marker-active{*/
+/*  background-color: gray;*/
+/*}*/
+.corporate_marker:hover {
+  background: gray;
+}
+.corporate_marker-active {
+  background: gray;
+}
 .KBmap__marker {
   position: absolute;
   -webkit-transform: translate(-50%, -100%);
@@ -89,11 +130,9 @@
   /*opacity: 1;*/
   /*background-size: 16px 16px;*/
 }
-.line {
-  position: absolute;
-  height: 1px;
-  background-color: black;
-  width: 230px !important;
+
+.KBmap__marker .active {
+  background: gray;
 }
 /*.KBmap__marker:hover{*/
 
@@ -129,15 +168,19 @@
 /*  margin-top: 100px;*/
 /*  margin-left: 0px;*/
 /*}*/
-/*popup window*/
 .KBmap__markerContent {
-  width: 200px;
-  height: auto;
+  width: 241px;
+  height: auto !important;
   background-color: #ffffff;
-  display: inline-block;
 
-  margin-left: 400px;
+  border-radius: 15px;
+  float: right;
+  margin-left: 272px !important;
 
+  /*padding-top: 5px;*/
+  /*padding-bottom: 3px;*/
+  padding-left: 20px;
+  /*padding-right: 20px;*/
   /*margin-top: 100px;*/
   -webkit-box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.15);
@@ -149,18 +192,24 @@
   z-index: 1;
 }
 .KBmap__markerContent img {
-  width: 100% !important ;
+  width: 80% !important;
   height: auto !important;
-  padding-left: 5px;
-  padding-right: 10px;
   /*height: 100px !important;*/
   /*height:173px;*/
   /*position: absolute;*/
 }
+
+.line {
+  position: absolute !important;
+  height: 1px !important;
+  background-color: gray !important;
+  width: 20% !important;
+  margin-left: 1% !important;
+  display: block !important;
+}
 .KBmap__markerContent .KBmap__markerTitle {
   margin-top: 0px;
   margin-bottom: 0.5em;
-  padding-left: 5px;
 }
 
 .KBmap__markerContentItem {
@@ -173,15 +222,14 @@
 .KBmap__markerContentItem p {
   margin-bottom: 0.5em;
   margin-top: 0px;
-  padding-left: 5px;
 }
 
 .KBmap__markerClose {
   position: absolute;
+  top: 10px;
   right: 10px;
   cursor: pointer;
   color: #231f20;
-  size: 5em;
 }
 
 .KBmap_cords {
@@ -202,8 +250,327 @@
 .elementor-safe-mode-toast {
   display: none !important;
 }
-.location {
+.locations {
+  width: 32%;
   float: left;
-  margin-top: 15% !important;
-  margin-left: 100px !important;
+  margin-top: 5%;
+}
+.circle {
+  background: #da0a1d;
+  border-radius: 60%;
+  -moz-border-radius: 60%;
+  -webkit-border-radius: 60%;
+  color: #fff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 18px;
+  margin-right: 1px;
+  text-align: center;
+  width: 20px;
+  font-size: 10px;
+}
+.circle2 {
+  background: #0b4d7d;
+  border-radius: 60%;
+  -moz-border-radius: 60%;
+  -webkit-border-radius: 60%;
+  color: #fff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 18px;
+  text-align: center;
+  width: 20px;
+  font-size: 10px;
+}
+.both {
+  -moz-border-radius: 60%;
+  -webkit-border-radius: 60%;
+  color: #fff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 18px;
+  text-align: center;
+  width: 20px;
+  font-size: 11px;
+  background: linear-gradient(
+    -90deg,
+    #0b4d7d,
+    #0b4d7d 50%,
+    white 50%,
+    white 50%,
+    #da0a1d 50%
+  );
+  border-radius: 60%;
+}
+
+@media only screen and (max-width: 768px) {
+  .KBmap__mapContainer {
+    width: 100% !important;
+    float: left !important;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
+  }
+  .KBmap__mapHolder {
+    width: 100% !important;
+    position: relative !important;
+
+    display: inline-block !important;
+  }
+  .KBmap__mapHolder img {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .KBmap__markerContent {
+    float: left !important;
+    padding-left: 20px !important;
+  }
+  .KBmap__markerContent img {
+    height: auto !important;
+    padding-bottom: 30px;
+  }
+  .line {
+    display: none !important;
+    visibility: hidden !important;
+    position: none !important;
+    height: 0px !important;
+    background-color: none !important;
+    width: 0% !important;
+    margin-left: 0% !important;
+  }
+
+  .locations {
+    width: 25% !important;
+    float: left;
+    margin-top: 5%;
+  }
+}
+@media only screen and (max-width: 414px) {
+  .KBmap__mapContainer {
+    width: 100% !important;
+    float: right;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
+  }
+  .KBmap__mapHolder {
+    width: 70% !important;
+    position: relative !important;
+
+    display: inline-block !important;
+  }
+  .KBmap__mapHolder img {
+    max-width: 100% !important;
+  }
+  div .KBmap__markerContent {
+    max-width: 200px;
+  }
+  .KBmap__markerContent {
+    float: left !important;
+    padding-left: 20px !important;
+    max-width: 160px !important;
+    margin-left: 30px !important;
+  }
+  .KBmap__markerContent img {
+    height: auto !important;
+    padding-bottom: 30px;
+    max-width: 80% !important;
+  }
+  .line {
+    display: none !important;
+    visibility: hidden !important;
+    position: none !important;
+    height: 0px !important;
+    background-color: none !important;
+    width: 0% !important;
+    margin-left: 0% !important;
+  }
+
+  .countryName {
+    font-size: 6px !important;
+    margin-left: 4px !important;
+  }
+  .countryName a {
+    font-size: 6px !important;
+  }
+
+  .locations {
+    width: 30% !important;
+    float: left;
+    margin-top: 5%;
+    font-size: 7px !important;
+    height: 5px !important;
+  }
+  .counter {
+    margin-bottom: 5px;
+  }
+  .circle {
+    background: #da0a1d;
+    border-radius: 20%;
+    -moz-border-radius: 20%;
+    -webkit-border-radius: 20%;
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 10px;
+    margin-right: 1px;
+    text-align: center;
+    width: 10px;
+    font-size: 6px;
+  }
+  .circle2 {
+    background: #0b4d7d;
+    border-radius: 20%;
+    -moz-border-radius: 20%;
+    -webkit-border-radius: 20%;
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 10px;
+    text-align: center;
+    width: 10px;
+    font-size: 6px;
+  }
+  .both {
+    -moz-border-radius: 20%;
+    -webkit-border-radius: 20%;
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 10px;
+    text-align: center;
+    width: 10px;
+    font-size: 6px;
+    background: linear-gradient(
+      -90deg,
+      #0b4d7d,
+      #0b4d7d 20%,
+      white 20%,
+      white 20%,
+      #da0a1d 20%
+    );
+    border-radius: 20%;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .KBmap__mapContainer {
+    width: 100% !important;
+    float: left !important;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
+  }
+  div .KBmap__mapHolder {
+    width: 100% !important;
+    position: relative !important;
+
+    display: inline-block !important;
+  }
+  .KBmap__mapHolder img {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  div .KBmap__markerContent {
+    max-width: 200px;
+  }
+  .KBmap__markerContent {
+    float: left !important;
+    padding-left: 20px !important;
+    max-width: 130px !important;
+    margin-left: 30px !important;
+  }
+  .KBmap__markerContent img {
+    height: auto !important;
+    padding-bottom: 30px;
+    max-width: 80% !important;
+  }
+  .line {
+    display: none !important;
+    visibility: hidden !important;
+    position: none !important;
+    height: 0px !important;
+    background-color: none !important;
+    width: 0% !important;
+    margin-left: 0% !important;
+  }
+  .countryName {
+    font-size: 6px !important;
+    margin-left: 4px !important;
+  }
+  .countryName a {
+    font-size: 6px !important;
+  }
+
+  .locations {
+    width: 20% !important;
+    float: left;
+    margin-top: 5%;
+    font-size: 7px !important;
+    height: 5px !important;
+  }
+  .counter {
+    margin-bottom: 5px;
+  }
+  .circle {
+    background: #da0a1d;
+    border-radius: 20%;
+    -moz-border-radius: 20%;
+    -webkit-border-radius: 20%;
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 10px;
+    margin-right: 1px;
+    text-align: center;
+    width: 10px;
+    font-size: 6px;
+  }
+  .circle2 {
+    background: #0b4d7d;
+    border-radius: 20%;
+    -moz-border-radius: 20%;
+    -webkit-border-radius: 20%;
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 10px;
+    text-align: center;
+    width: 10px;
+    font-size: 6px;
+  }
+  .both {
+    -moz-border-radius: 20%;
+    -webkit-border-radius: 20%;
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 10px;
+    text-align: center;
+    width: 10px;
+    font-size: 6px;
+    background: linear-gradient(
+      -90deg,
+      #0b4d7d,
+      #0b4d7d 20%,
+      white 20%,
+      white 20%,
+      #da0a1d 20%
+    );
+    border-radius: 20%;
+  }
 }
